@@ -1,12 +1,7 @@
-<html>
-    <head>
-        <title>Login</title>
-    </head>
-    <body>
-        <form action="/login-process">
-            <input type="text" placeholder="Family Username" />
-            <input type="password" placeholder="Password">
-            <input type="submit" value="login">
-        </form>
-    </body>
-</html>
+<% include ../partials/header %>
+<form action="/login-process" method="POST">
+    <input type="text" placeholder="Family Username" name="username" />
+    <input type="password" placeholder="Password" name="password" />
+    <input type="submit" value="login">
+</form>
+<% include ../partials/footer %>
