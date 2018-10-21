@@ -59,6 +59,19 @@ app.post('/login-process', (req, res) => {
     return;
 })
 
+app.get('/home', (req, res) => {
+    if(req.session.username) {
+        var table = fileToJson('data/families.json');
+        for(var i = 0; i < table.length; i++) {
+            if(table[i].username == req.session.username) {
+                res.render('pages/home', table[i])
+            }
+        }
+    } else {
+        res.redirect('/');
+    }
+})
+
 app.listen(3000, () => {
     console.log('Started on port 3000')
 })
